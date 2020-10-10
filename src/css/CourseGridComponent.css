@@ -1,0 +1,48 @@
+.course-card {
+    height: 350px;
+    background: #e6e6e6;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.course-card-image {
+    height: 275px;
+    width: 100%;
+}
+
+.course-card-footer {
+    background: rgb(204, 204, 204);
+    height: 75px;
+    width: 100%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 10px 20px;
+}
+
+.course-list-btn {
+    margin-right: 5px;
+}
+
+.course-card-col {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.btn-delete {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    background: rgba(192, 0, 0, 0.418);
+    border: 0;
+}
+
+.btn-edit {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border: 0;
+    background: rgba(0, 130, 182, 0.568);
+}
+
+.course-card-updated {
+    font-size: 13px;
+    color: rgb(61, 61, 61);
+}

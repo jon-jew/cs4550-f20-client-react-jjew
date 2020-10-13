@@ -1,5 +1,5 @@
 {
-  "name": "cs4550-f20-client-react-jannunzi",
+  "name": "cs4550-f20-jonathan-jew-client-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -20,10 +20,10 @@
     "redux": "^4.0.5"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "react-scripts start",
+    "start": "serve -s build",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"

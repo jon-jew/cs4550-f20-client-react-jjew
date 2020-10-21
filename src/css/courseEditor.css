@@ -71,15 +71,20 @@
     transition: all 0.2s;
 }
 
-.module-btn.save:hover {
+.lesson-btn {
+    margin-right: 10px;
+    transition: all 0.2s;
+}
+
+.save:hover {
     color: rgb(35, 161, 43);
 }
 
-.module-btn.trash:hover {
+.trash:hover {
     color: rgb(153, 15, 15);
 }
 
-.module-btn.edit:hover {
+.edit:hover {
     color: rgb(16, 59, 199);
 }
 
@@ -99,9 +104,24 @@
 
 .list-group-item {
     transition: all .2s;
+    padding: 10px;
 }
 
+.module-item {
+    padding: 10px;
+}
 
 .btn-create-lesson {
     float: right;
+}
+
+.close-btn {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 30px;
+}
+
+.edit-bar {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

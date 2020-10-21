@@ -8,10 +8,7 @@ export class CourseManager extends React.Component {
     return(
       <Router>
         <div>
-
-          <Link to="/courses">Course List</Link>
-
-          <Route path="/courses" exact component={CourseListComponent}/>
+          <Route path="/" exact component={CourseListComponent}/>
           <Route path="/edit/:courseId" exact component={CourseEditor}/>
         </div>
       </Router>

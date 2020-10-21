@@ -8,7 +8,8 @@ import ModuleList from "./ModuleList";
 import { connect } from "react-redux";
 import { Tabs, Button, Tab } from 'react-bootstrap';
 import TopicContents from './TopicContents';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrashAlt, faSave } from '@fortawesome/free-regular-svg-icons'; 
 
 const TopicTabs = ({
         topics=[],
@@ -19,7 +20,6 @@ const TopicTabs = ({
         saveChanges
 }) => {
     const [key, setKey] = useState('home');
-    console.log(topics);
     return (
         <div>
             <h1>
@@ -38,28 +38,37 @@ const TopicTabs = ({
                 {
                 topics.map(topic =>
                     <Tab key={topic._id} eventKey={topic._id} title={topic.title}>
-                    <button onClick={() => deleteTopic(topic._id)}>
-                        Delete
-                    </button>
-                    <button onClick={() => updateTopic({...topic, editing: true})}>
-                        Edit
-                    </button>
-                    <button onClick={() => updateTopic({...topic, editing: false})}>
-                        Ok
-                    </button>
-                    {
-                        !topic.editing &&
-                        <span>{topic.title}</span>
-                    }
-                    {
-                        topic.editing &&
-                        <input
-                        onChange={(e) => updateTopic({...topic, title: e.target.value})}
-                        value={topic.title}/>
-                    }
-                    <button onClick={() => saveChanges(topic)}>
-                        Save
-                    </button>
+                        <div className="edit-bar">
+                            <FontAwesomeIcon
+                                className="lesson-btn trash"
+                                icon={faTrashAlt}
+                                onClick={() => deleteTopic(topic._id)}
+                                />
+                                {
+                                topic.editing ? 
+                                    <span>
+                                    <FontAwesomeIcon
+                                        className="lesson-btn save"
+                                        icon={faSave}
+                                        onClick={() => updateTopic({...topic, editing: false})}
+                                    />
+                                    <input
+                                        className="lesson-title module-edit-input"
+                                        onChange={(event) =>
+                                        updateTopic({...topic, title: event.target.value})
+                                        }
+                                        value={topic.title}/>
+                                    </span> :
+                                    <span>
+                                    <FontAwesomeIcon
+                                        className="lesson-btn edit"
+                                        icon={faEdit}
+                                        onClick={() => updateTopic({...topic, editing: true})}
+                                    />
+                                    {topic.title}
+                                    </span>
+                                }
+                            </div>
                     <TopicContents />
                     </Tab>
                 )

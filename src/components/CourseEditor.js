@@ -6,6 +6,9 @@ import lessonService from "../services/LessonService"
 import ModuleList from "./ModuleList";
 import LessonTabs from "./LessonTabs";
 import { connect } from "react-redux";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimesCircle } from '@fortawesome/free-regular-svg-icons';
+import { Link } from 'react-router-dom';
 
 function CourseEditor (props) {
   const [course, setCourse] = useState({
@@ -20,14 +23,20 @@ function CourseEditor (props) {
   }, []);
 
   return(
-    <div className="container">
-      <div className="row">
-          <a href="../course-list/course-list.template.client.html">
-              <i className="far fa-times-circle wbdv-course-editor wbdv-close"></i>
-          </a>
-          <h2 className="wbdv-course-title">{course.title}</h2>
-      </div>
-    <ModuleList />
+    <div>
+        <Link to="/">
+            <FontAwesomeIcon icon={faTimesCircle} className="close-btn"/>
+        </Link>
+        
+        <div className="container">
+        <div className="row">
+            <a href="../course-list/course-list.template.client.html">
+                <i className="far fa-times-circle wbdv-course-editor wbdv-close"></i>
+            </a>
+            <h2 className="wbdv-course-title">{course.title}</h2>
+        </div>
+            <ModuleList />
+        </div>
     </div>
   );
 };

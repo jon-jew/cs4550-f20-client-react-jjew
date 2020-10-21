@@ -3,6 +3,8 @@ import {connect} from "react-redux";
 import lessonService from "../services/LessonService"
 import { Tabs, Tab, Button } from 'react-bootstrap';
 import TopicTabs from './TopicTabs';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrashAlt, faSave } from '@fortawesome/free-regular-svg-icons'; 
 
 const LessonTabs = (
   {
@@ -33,28 +35,37 @@ const LessonTabs = (
         {
           lessons.map(lesson =>
             <Tab key={lesson._id} eventKey={lesson._id} title={lesson.title}>
-              <button onClick={() => deleteLesson(lesson._id)}>
-                Delete
-              </button>
-              <button onClick={() => updateLesson({...lesson, editing: true})}>
-                Edit
-              </button>
-              <button onClick={() => updateLesson({...lesson, editing: false})}>
-                Ok
-              </button>
-              {
-                !lesson.editing &&
-                <span>{lesson.title}</span>
-              }
-              {
-                lesson.editing &&
-                <input
-                  onChange={(e) => updateLesson({...lesson, title: e.target.value})}
-                  value={lesson.title}/>
-              }
-              <button onClick={() => saveChanges(lesson)}>
-                Save
-              </button>
+              <div className="edit-bar">
+                <FontAwesomeIcon
+                  className="lesson-btn trash"
+                  icon={faTrashAlt}
+                  onClick={() => deleteLesson(lesson._id)}
+                />
+                {
+                  lesson.editing ? 
+                    <span>
+                      <FontAwesomeIcon
+                        className="lesson-btn save"
+                        icon={faSave}
+                        onClick={() => updateLesson({...lesson, editing: false})}
+                      />
+                      <input
+                        className="lesson-title module-edit-input"
+                        onChange={(event) =>
+                          updateLesson({...lesson, title: event.target.value})
+                        }
+                        value={lesson.title}/>
+                    </span> :
+                    <span>
+                      <FontAwesomeIcon
+                        className="lesson-btn edit"
+                        icon={faEdit}
+                        onClick={() => updateLesson({...lesson, editing: true})}
+                      />
+                      {lesson.title}
+                    </span>
+                }
+              </div>
               <TopicTabs />
             </Tab>
           )

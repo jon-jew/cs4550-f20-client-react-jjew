@@ -14,7 +14,6 @@ import {
   createModule,
   deleteModule
 } from "../actions/moduleActions";
-import { Link } from "react-router-dom";
 
 const ModuleList = (
   { course,

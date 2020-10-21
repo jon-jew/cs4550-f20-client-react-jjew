@@ -2,27 +2,6 @@ import React, { useState, useEffect } from "react";
 
 const TopicContents = () => (
     <div>
-    <ul className="nav nav-pills">
-                    <li className="nav-item">
-                        <a href="#"  className="nav-link">Topic 1</a>
-                    </li>
-                    <li className="nav-item">
-                        <a href="#"  className="nav-link active">Topic 2</a>
-                    </li>
-                    <li className="nav-item">
-                        <a href="#"  className="nav-link">Topic 3</a>
-                    </li>
-                    <li className="nav-item">
-                        <a href="#"  className="nav-link">Topic 4</a>
-                    </li>
-                    <li className="nav-item">
-                        <a href="#"  className="nav-link">Topic 5</a>
-                    </li>
-                    <li className="nav-item">
-                        <a href="#"  className="nav-link">Topic 1</a>
-                    </li>
-                </ul>
-                <br/>
                 <button className='btn btn-success btn-add-widget'>Add Widget</button>
                 <div className="widget">
                     <div className='widget-header'>

@@ -65,3 +65,43 @@
     margin-left: 70%;
 }
 
+.module-btn {
+    float: right;
+    margin-right: 10px;
+    transition: all 0.2s;
+}
+
+.module-btn.save:hover {
+    color: rgb(35, 161, 43);
+}
+
+.module-btn.trash:hover {
+    color: rgb(153, 15, 15);
+}
+
+.module-btn.edit:hover {
+    color: rgb(16, 59, 199);
+}
+
+.module-title {
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+.module-edit-input {
+    border: solid 1px rgb(109, 109, 109);
+}
+
+.create-module-btn {
+    margin-bottom: 10px;
+}
+
+.list-group-item {
+    transition: all .2s;
+}
+
+
+.btn-create-lesson {
+    float: right;
+}

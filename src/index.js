@@ -10,8 +10,9 @@ import {Provider} from "react-redux";
 import fsm from "./reducers/fsmReducer"
 import moduleReducer from "./reducers/modulesReducer";
 import courseReducer from "./reducers/courseReducer";
-import {lessonReducer} from "./reducers/lessonReducer";
+import { lessonReducer } from "./reducers/lessonReducer";
 import { topicReducer } from './reducers/topicReducer';
+import widgetReducer from "./reducers/widgetReducer";
 
 const rootReducer = combineReducers({
   fsm,
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   courseReducer,
   lessonReducer,
   topicReducer,
+  widgetReducer,
 })
 
 const store = createStore(rootReducer)

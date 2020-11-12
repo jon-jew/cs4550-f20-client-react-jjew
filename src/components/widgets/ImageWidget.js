@@ -2,18 +2,18 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt, faSave } from "@fortawesome/free-regular-svg-icons";
 
-const ParagraphWidget = ({
+const ImageWidget = ({
   widget,
   updateParagraphPreview,
   deleteWidget,
   saveWidget,
   topicId,
 }) => {
-  return(
+  return (
     <div className="widget">
       <div className="widget-header">
         <h3 className="widget-heading">
-          <i className="fas fa-align-left"></i> Paragraph Widget
+          <i className="far fa-image"></i> Image Widget
         </h3>
         <div className="float-right">
           <a
@@ -30,16 +30,22 @@ const ParagraphWidget = ({
           </a>
         </div>
       </div>
-      <textarea
+      <div className="image">
+        <img
+          src={widget.text}
+          className="img-fluid"
+          alt="Responsive image"
+        />
+      </div>
+      <input
         className="form-control"
+        title="Image Source"
+        placeholder="Image URL"
+        value={widget.text}
         onChange={(e) => updateParagraphPreview(widget, e.target.value)}
-      >
-        {widget.text}
-      </textarea>
-      <h4>Preview</h4>
-      <p>{widget.text}</p>
+      />
     </div>
   );
 };
 
-export default ParagraphWidget;
+export default ImageWidget;

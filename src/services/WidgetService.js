@@ -1,10 +1,10 @@
 
 const topicsUrl = "https://cs4550-f20-server-java-jjew.herokuapp.com/api/topics"
 
-const findWidgetsForTopic = (topicId) =>
+const findWidgets = (topicId) =>
   fetch(`${topicsUrl}/${topicId}/widgets`).then(response => response.json())
 
-const createWidgetForTopic = (topicId, widget) =>
+const createWidget = (topicId, widget) =>
     fetch(`${topicsUrl}/${topicId}/widgets`,
         {
           method: "POST",
@@ -17,7 +17,7 @@ const createWidgetForTopic = (topicId, widget) =>
           }
         }).then(response => response.json());
 
-const saveWidgetForTopic = (topicId, widget) =>
+const saveWidget = (topicId, widget) =>
     fetch(`${topicsUrl}/${topicId}/widgets/${widget.id}`,
         {
           method: "PUT",
@@ -36,5 +36,5 @@ const deleteWidget = (topicId, widget) =>
     }).then(response => response.json());
 
 export default {
-  findWidgetsForTopic, createWidgetForTopic, deleteWidget, saveWidgetForTopic
+  findWidgets, createWidget, deleteWidget, saveWidget
 };

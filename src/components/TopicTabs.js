@@ -7,7 +7,7 @@ import topicService from "../services/TopicService";
 import ModuleList from "./ModuleList";
 import { connect } from "react-redux";
 import { Tabs, Button, Tab } from "react-bootstrap";
-import TopicContents from "./TopicContents";
+import WidgetList from "./WidgetList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEdit,

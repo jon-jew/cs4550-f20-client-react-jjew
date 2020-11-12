@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt, faSave } from "@fortawesome/free-regular-svg-icons";
 
-const ParagraphWidget = ({
+const ListWidget = ({
   widget,
   updateParagraphPreview,
   deleteWidget,
@@ -42,4 +42,4 @@ const ParagraphWidget = ({
   );
 };
 
-export default ParagraphWidget;
+export default ListWidget;

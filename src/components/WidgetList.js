@@ -1,8 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import widgetService from "../services/WidgetService";
-import HeadingWidget from ".widgets/HeadingWidget";
-import ParagraphWidget from ".widgets/ParagraphWidget";
+import HeadingWidget from "./widgets/HeadingWidget";
+import ParagraphWidget from "./widgets/ParagraphWidget";
+import ImageWidget from "./widgets/ImageWidget";
+import ListWidget from "./widgets/ListWidget";
 import { Button } from "react-bootstrap";
 
 const WidgetList = ({
@@ -14,46 +16,68 @@ const WidgetList = ({
   saveWidget,
   updateHeadingPreview,
 }) => {
-  <div>
-    <h3>Widgets</h3>
-    <ul>
-      {topicId !== null &&
-        widgets.map((widget) => (
-          <div key={widget.id}>
-            {widget.type === "HEADING" && (
-              <HeadingWidget
-                updateHeadingPreview={updateHeadingPreview}
-                updateParagraphPreview={updateParagraphPreview}
-                widget={widget}
-                deleteWidget={deleteWidget}
-                saveWidget={saveWidget}
-              />
-            )}
-            {widget.type === "PARAGRAPH" && (
-              <ParagraphWidget
-                updateParagraphPreview={updateParagraphPreview}
-                widget={widget}
-                deleteWidget={deleteWidget}
-                saveWidget={saveWidget}
-              />
-            )}
-          </div>
-        ))}
-    </ul>
+  return (
+    <div>
+      <h3>Widgets</h3>
+      <ul>
+        {topicId !== null &&
+          widgets.map((widget) => (
+            <div key={widget.id}>
+              {widget.type === "HEADING" && (
+                <HeadingWidget
+                  updateHeadingPreview={updateHeadingPreview}
+                  updateParagraphPreview={updateParagraphPreview}
+                  widget={widget}
+                  deleteWidget={deleteWidget}
+                  saveWidget={saveWidget}
+                  topicId={topicId}
+                />
+              )}
+              {widget.type === "PARAGRAPH" && (
+                <ParagraphWidget
+                  updateParagraphPreview={updateParagraphPreview}
+                  widget={widget}
+                  deleteWidget={deleteWidget}
+                  saveWidget={saveWidget}
+                  topicId={topicId}
+                />
+              )}
+              {widget.type === "IMAGE" && (
+                <ImageWidget
+                  updateParagraphPreview={updateParagraphPreview}
+                  widget={widget}
+                  deleteWidget={deleteWidget}
+                  saveWidget={saveWidget}
+                  topicId={topicId}
+                />
+              )}
+              {widget.type === "LIST" && (
+                <ListWidget
+                  updateParagraphPreview={updateParagraphPreview}
+                  widget={widget}
+                  deleteWidget={deleteWidget}
+                  saveWidget={saveWidget}
+                  topicId={topicId}
+                />
+              )}
+            </div>
+          ))}
+      </ul>
 
-    <Button
-      className="btn btn-primary"
-      onClick={() => createWidget(topicId, "PARAGRAPH")}
-    >
-      Add Paragraph
-    </Button>
-    <Button
-      className="btn btn-primary"
-      onClick={() => createWidget(topicId, "HEADING")}
-    >
-      Add Header
-    </Button>
-  </div>;
+      <Button
+        className="btn btn-primary"
+        onClick={() => createWidget(topicId, "PARAGRAPH")}
+      >
+        Add Paragraph
+      </Button>
+      <Button
+        className="btn btn-primary"
+        onClick={() => createWidget(topicId, "HEADING")}
+      >
+        Add Header
+      </Button>
+    </div>
+  );
 };
 
 const stateToPropMapper = (state) => ({
